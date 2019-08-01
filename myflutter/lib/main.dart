@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
@@ -14,6 +15,7 @@ void main() => runApp(MyApp(route: window.defaultRouteName));
 Widget _widgetForRoute(String route) {
   switch (route) {
     case 'myApp':
+    case '/':
       return MyHomePage();
     case 'homePage':
       return HomePage();
@@ -51,7 +53,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String nativeBackString = 'Not return';
-  static const platform = const MethodChannel('com.hehuimin.flutter/platform_method');
+  static const platform =
+      const MethodChannel('com.hehuimin.flutter/platform_method');
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Flutter调原生方法并返回结果给Flutter'),
               onPressed: _invokeNativeGetResult,
             ),
-            Text('$nativeBackString')
+            Text('$nativeBackString'),
+            Container(
+              margin: EdgeInsets.all(20),
+              child: RaisedButton(
+                child: Text('页面跳转'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return HomePage();
+                  }));
+                },
+              ),
+            )
           ],
         ),
       ),
