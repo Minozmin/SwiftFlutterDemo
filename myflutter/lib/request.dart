@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 class DioHttpRequest {
+  //get请求
   static Future<ResponseData> getReqeust(String path, [dynamic params]) async {
     return _request('GET', path, params);
   }
 
+  //post请求
   static Future<ResponseData> postRequest(String path,
       [dynamic params]) async {
     return _request('POST', path, params);
@@ -14,10 +16,10 @@ class DioHttpRequest {
 
   static Future<ResponseData> _request(String method, String path,
       [dynamic params]) async {
+
     BaseOptions options = BaseOptions(
       baseUrl: 'https://m.devapi.haoshiqi.net',
     );
-
     Dio dio = Dio(options);
 
     try {
@@ -39,16 +41,16 @@ class DioHttpRequest {
       }
     } on DioError catch (e) {
       ResponseData responseData = ResponseData();
-    responseData.errmsg = _errmsg(e.type);
-    //类型判断 is
-    if (e.error is SocketException) {
-      SocketException error = e.error;
-      responseData.errno = error.osError.errorCode;
-    } else {
-      responseData.errno = -1;
-    }
+      responseData.errmsg = _errmsg(e.type);
+      //类型判断 is
+      if (e.error is SocketException) {
+        SocketException error = e.error;
+        responseData.errno = error.osError.errorCode;
+      } else {
+        responseData.errno = -1;
+      }
 
-    return Future.value(responseData);
+      return Future.value(responseData);
     }
   }
 
