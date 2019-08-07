@@ -1,7 +1,8 @@
-import 'dart:io';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+import 'dart:io';
+
 import 'request.dart';
 
 class HomePage extends StatelessWidget {
@@ -61,24 +62,24 @@ class _HomePageState extends State<HomePageFul> {
     );
   }
 
-  //dio网络请求（推荐）
+  /// dio网络请求（推荐）
   _httpReqeust() {
     var request = DioHttpRequest.getReqeust('/common/index_v2');
     request.then((response) {
       if (response.errno == 0) {
-        //成功
+        // 成功
         print('成功');
       } else {
-        //失败
+        // 失败
         print('失败');
       }
       setState(() {
-        errmsg += response.errmsg;
+        errmsg = 'errmsg: ${response.errmsg}';
       });
     });
   }
 
-  //flutter原生网络请求，简单处理get请求
+  /// flutter原生网络请求，简单处理get请求
   _flutterReuest() async {
     var httpClient = HttpClient();
 

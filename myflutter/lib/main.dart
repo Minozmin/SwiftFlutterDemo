@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'dart:ui';
 
 import 'home.dart';
 
-//通过routel打开
+// 通过routel打开
 // void main() => runApp(MyApp());
-//指定路由打开，需要引入import 'dart:ui';
+// 指定路由打开，需要引入import 'dart:ui';
 void main() => runApp(MyApp(route: window.defaultRouteName));
 
-//跳转到指定页面
-//通过指定路由打开Flutter的页面都需要在MaterialApp()才可以
+// 跳转到指定页面
+// 通过指定路由打开Flutter的页面都需要在MaterialApp()才可以
 Widget _widgetForRoute(String route) {
   switch (route) {
     case 'myApp':
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //flutter 注册原生监听方法
+    // flutter 注册原生监听方法
     platform.setMethodCallHandler(_handleCallback);
 
     return Scaffold(
@@ -88,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  //Flutter调原生方法并返回结果给Flutter
+  // Flutter调原生方法并返回结果给Flutter
   Future<void> _invokeNativeGetResult() async {
     String backString;
     try {
@@ -104,9 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  //原生调用Flutter方法并返回结果给原生
+  // 原生调用Flutter方法并返回结果给原生
   Future<dynamic> _handleCallback(MethodCall methodCall) {
-    //这边打印的会在xCode中输出
+    // 这边打印的会在xCode中输出
     print('flutter：$methodCall.arguments');
     String backString = '';
     if (methodCall.method == 'sendMessage') {

@@ -1,14 +1,15 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:dio/dio.dart';
 
+import 'dart:convert';
+import 'dart:io';
+
 class DioHttpRequest {
-  //get请求
+  // get请求
   static Future<ResponseData> getReqeust(String path, [dynamic params]) async {
     return _request('GET', path, params);
   }
 
-  //post请求
+  // post请求
   static Future<ResponseData> postRequest(String path,
       [dynamic params]) async {
     return _request('POST', path, params);
@@ -32,17 +33,17 @@ class DioHttpRequest {
 
       if (response.statusCode == 200) {
         print(response.data);
-        return Future.value(ResponseData.parse(response.data));
+        return ResponseData.parse(response.data);
       } else {
         ResponseData responseData = ResponseData();
         responseData.errno = response.statusCode;
         responseData.errmsg = '服务器异常';
-        return Future.value(responseData);
+        return responseData;
       }
     } on DioError catch (e) {
       ResponseData responseData = ResponseData();
       responseData.errmsg = _errmsg(e.type);
-      //类型判断 is
+      // 类型判断 is
       if (e.error is SocketException) {
         SocketException error = e.error;
         responseData.errno = error.osError.errorCode;
@@ -50,11 +51,11 @@ class DioHttpRequest {
         responseData.errno = -1;
       }
 
-      return Future.value(responseData);
+      return responseData;
     }
   }
 
-  //错误码处理
+  // 错误码处理
   static String _errmsg(DioErrorType type) {
     switch (type) {
       case DioErrorType.CONNECT_TIMEOUT:
@@ -79,7 +80,7 @@ class DioHttpRequest {
   }
 }
 
-//返回数据处理
+// 返回数据处理
 class ResponseData {
   String errmsg;
   int errno;
