@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'dart:ui';
 
 import 'home.dart';
+import 'animated.dart';
 
 // 通过routel打开
 // void main() => runApp(MyApp());
@@ -82,6 +83,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   }));
                 },
               ),
+            ),
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('AnimatedContainer'),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return AnimatedContainerPage();
+                    }));
+                  },
+                )
+              ],
             )
           ],
         ),
