@@ -123,6 +123,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       return TabBarPage();
                     }));
                   },
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'TextField'
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'TextFormField'
+                  ),
                 )
               ],
             )
