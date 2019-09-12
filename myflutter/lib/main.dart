@@ -6,6 +6,7 @@ import 'dart:ui';
 
 import 'home.dart';
 import 'animated.dart';
+import 'tabbar.dart';
 
 // 通过routel打开
 // void main() => runApp(MyApp());
@@ -114,6 +115,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     // Scaffold.of(context).showSnackBar(snackBar);
                   },
+                ),
+                RaisedButton(
+                  child: Text('TabBarView'),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return TabBarPage();
+                    }));
+                  },
                 )
               ],
             )
@@ -152,6 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // 些方法需要在原生项目中运行使用
   // Flutter调原生方法并返回结果给Flutter
   Future<void> _invokeNativeGetResult() async {
     String backString;
