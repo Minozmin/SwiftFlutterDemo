@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'home.dart';
 import 'animated.dart';
 import 'tabbar.dart';
+import 'snackbar.dart';
 
 // 通过routel打开
 // void main() => runApp(MyApp());
@@ -58,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String nativeBackString = 'Not return';
   static const platform =
   const MethodChannel('com.hehuimin.flutter/platform_method');
-  var _scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -99,21 +99,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 RaisedButton(
-                  // 没有效果，待解决
-                  child: Text('Show SnackBar'),
+                  child: Text('SnackBar Page'),
                   onPressed: () {
-                    final snackBar = SnackBar(
-                      content: Text('Yay, A SnackBar!'),
-                      action: SnackBarAction(
-                        label: 'Undo',
-                        onPressed: () {
-                          print('Click Undo');
-                        },
-                      ),
-                    );
-                    _scaffoldkey.currentState.showSnackBar(snackBar);
-
-                    // Scaffold.of(context).showSnackBar(snackBar);
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return SanckBarPage();
+                    }));
                   },
                 ),
                 RaisedButton(
