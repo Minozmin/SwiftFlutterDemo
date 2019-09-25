@@ -7,26 +7,63 @@ import 'dart:io';
 
 import 'request.dart';
 
+class Parameters {
+  final bool isFlutter;
+
+  Parameters(this.isFlutter);
+}
+
 class HomePage extends StatelessWidget {
+  final Parameters parameters;
+  HomePage({Key key, this.parameters}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return HomePageFul();
+    return HomePageFul(parameters: parameters);
   }
 }
 
 class HomePageFul extends StatefulWidget {
+  final Parameters parameters;
+  HomePageFul({Key key, this.parameters}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePageFul> {
+
   String errmsg = 'errmsg:';
 
   @override
   Widget build(BuildContext context) {
+    print(widget.parameters.isFlutter);
+    if (widget.parameters.isFlutter) {
+      return _showAppBar();
+    }else {
+      return _hiddenAppBar();
+    }
+  }
+  // 显示AppBar
+  Widget _showAppBar() {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
+      appBar: AppBar(
+        title: Text("网络请求示例"),
+      ),
+      body: _safeAreaContainer(),
+    );
+  }
+
+  // 不显示AppBar
+  Widget _hiddenAppBar() {
+    return Scaffold(
+      body: _safeAreaContainer(),
+    );
+  }
+
+  Widget _safeAreaContainer() {
+    return SafeArea(
+      child: Column(
           crossAxisAlignment: CrossAxisAlignment.start, //水平左对齐
           children: <Widget>[
             RaisedButton(
@@ -52,7 +89,6 @@ class _HomePageState extends State<HomePageFul> {
             )
           ],
         )
-      ),
     );
   }
 

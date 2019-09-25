@@ -5,16 +5,19 @@ import 'package:flutter/services.dart';
 
 import 'home.dart';
 
-class NativeHandelPage extends StatefulWidget {
-  NativeHandelPage({Key key, this.title}) : super(key: key);
+class NativeHandelPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _NativeHandelPage();
+  }
+}
 
-  final String title;
-
+class _NativeHandelPage extends StatefulWidget {
   @override
   _NativeHandelPageState createState() => _NativeHandelPageState();
 }
 
-class _NativeHandelPageState extends State<NativeHandelPage> {
+class _NativeHandelPageState extends State<_NativeHandelPage> {
   String nativeBackString = 'Not return';
   static const platform =
   const MethodChannel('com.hehuimin.flutter/platform_method');
@@ -41,7 +44,7 @@ class _NativeHandelPageState extends State<NativeHandelPage> {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return HomePage();
+                    return HomePage(parameters: Parameters(false),);
                   }));
                 },
               ),

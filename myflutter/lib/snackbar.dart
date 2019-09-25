@@ -12,6 +12,9 @@ class _SnackBarPageState extends State<SanckBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("SnackBar"),
+      ),
       // 设置key处理SnackBar，这里一定要设置，否则弹窗不显示
       key: _scaffoldkey,
       body: Center(

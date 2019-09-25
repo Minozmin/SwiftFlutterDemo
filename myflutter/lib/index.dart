@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutter/home.dart';
 
 import 'animated.dart';
 import 'tabbar.dart';
@@ -9,6 +10,9 @@ class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter"),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -16,6 +20,14 @@ class IndexPage extends StatelessWidget {
               spacing: 8.0,
               runSpacing: 4.0,
               children: <Widget>[
+                RaisedButton(
+                  child: Text("网络请求"),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                      return HomePage(parameters: Parameters(true),);
+                    }));
+                  },
+                ),
                 RaisedButton(
                   child: Text('AnimatedContainer Page'),
                   onPressed: () {

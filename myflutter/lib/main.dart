@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: _widgetForRoute(route),
+      debugShowCheckedModeBanner: false, // 不显示Debug标签
     );
   }
 }
