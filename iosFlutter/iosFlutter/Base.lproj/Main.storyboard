@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jcv-MA-ltp">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jcv-MA-ltp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,18 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuH-TM-0L9">
-                                <rect key="frame" x="186" y="314.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irY-Wg-070">
-                                <rect key="frame" x="186" y="385.5" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0s6-9e-Iho">
                                 <rect key="frame" x="150.5" y="456" width="113" height="38"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -59,18 +45,10 @@
                         <constraints>
                             <constraint firstItem="0s6-9e-Iho" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cV2-JK-jmy"/>
                             <constraint firstItem="0s6-9e-Iho" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="gzK-Vn-Oi1"/>
-                            <constraint firstItem="irY-Wg-070" firstAttribute="top" secondItem="XuH-TM-0L9" secondAttribute="bottom" constant="50" id="qZn-QL-Sm1"/>
-                            <constraint firstItem="0s6-9e-Iho" firstAttribute="top" secondItem="irY-Wg-070" secondAttribute="bottom" constant="50" id="sC1-h1-C8H"/>
-                            <constraint firstItem="XuH-TM-0L9" firstAttribute="centerX" secondItem="irY-Wg-070" secondAttribute="centerX" id="uyU-mL-m0E"/>
-                            <constraint firstItem="irY-Wg-070" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xmw-Uj-QM0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="rYz-Gn-elP"/>
-                    <connections>
-                        <outlet property="label1" destination="XuH-TM-0L9" id="oqu-ar-dDV"/>
-                        <outlet property="label2" destination="irY-Wg-070" id="8Rg-Mo-Rwy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
