@@ -7,7 +7,8 @@ target 'iosFlutter' do
   # Pods for iosFlutter
   
   #切换路径时需重新pod install
-  flutter_application_path = '../myflutter/'
-  eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+  flutter_application_path = '../myflutter'
+  load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+  install_all_flutter_pods(flutter_application_path)
 
 end
