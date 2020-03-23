@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GeneratedPluginRegistrant.register(with: self as? FlutterPluginRegistry)
-        return liftCycleDelegate.application(application, didFinishLaunchingWithOptions: launchOptions ?? [:])
+//        GeneratedPluginRegistrant.register(with: self as? FlutterPluginRegistry)
+//        return liftCycleDelegate.application(application, didFinishLaunchingWithOptions: launchOptions ?? [:])
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
